@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id           String      @id @default(cuid())
+  email        String      @unique
+  passwordHash String
+  createdAt    DateTime    @default(now())
+  people       Person[]
+  tasks        Task[]
+  commits      Commit[]
+  focusItems   FocusItem[]
+}
+
+model Person {
+  id         String @id @default(cuid())
+  userId     String
+  name       String
+  orderIndex Int
+  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks      Task[] @relation("AssigneeTasks")
+
+  @@index([userId])
+}
+
+model Task {
+  id                String   @id @default(cuid())
+  userId            String
+  title             String
+  assigneePersonId  String
+  rowStatus         String   @default("CURRENT") // CURRENT | NEXT_SPRINT | BACKLOG
+  completionPercent Int      @default(0)
+  dueDate           String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignee          Person   @relation("AssigneeTasks", fields: [assigneePersonId], references: [id])
+  commits           Commit[]
+
+  @@index([userId])
+  @@index([assigneePersonId])
+}
+
+model Commit {
+  id                     String   @id @default(cuid())
+  userId                 String
+  taskId                 String
+  timestamp              DateTime @default(now())
+  description            String
+  timeSpentMinutes       Int
+  completionPercentAfter Int
+  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task                   Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([taskId])
+}
+
+model FocusItem {
+  id         String @id @default(cuid())
+  userId     String
+  text       String
+  orderIndex Int
+  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
