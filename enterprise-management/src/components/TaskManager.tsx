@@ -71,7 +71,7 @@ function TaskCard({
         isDragOverlay ? "shadow-lg ring-2 ring-blue-200" : ""
       }`}
     >
-      <div className="text-sm font-medium text-gray-900 truncate">{task.title}</div>
+      <div className="text-sm font-medium text-gray-900 line-clamp-2">{task.title}</div>
       <div className="flex items-center justify-between mt-1.5">
         <span className="text-xs text-gray-500">{task.completionPercent}%</span>
         {totalMinutes > 0 && <span className="text-xs text-gray-400">{timeStr}</span>}
@@ -323,10 +323,16 @@ export default function TaskManager({ tasks, people, onDataChange }: Props) {
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
-          <table className="w-full min-w-[800px]">
+          <table className="w-full min-w-[800px] table-fixed">
+            <colgroup>
+              <col className="w-28" />
+              {people.map((person) => (
+                <col key={person.id} />
+              ))}
+            </colgroup>
             <thead>
               <tr className="border-b border-gray-100">
-                <th className="w-28 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Status
                 </th>
                 {people.map((person) => (

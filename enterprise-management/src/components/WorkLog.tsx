@@ -122,6 +122,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
   async function handleSave() {
     const newErrors: Record<string, string> = {};
 
+    if (timerRunning) newErrors.timer = "Stop the timer before saving";
     if (!selectedTaskId) newErrors.task = "Task required";
     if (!completionPercent && completionPercent !== "0") newErrors.completion = "Completion % required";
     if (!description.trim()) newErrors.description = "Description required";
@@ -191,6 +192,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
             <span className="text-xs text-gray-400">min override</span>
           </div>
         </div>
+        {errors.timer && <p className="text-xs text-red-500">{errors.timer}</p>}
         {errors.time && <p className="text-xs text-red-500">{errors.time}</p>}
 
         {/* Task selector */}
