@@ -169,11 +169,8 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleTimer}
-            className={`px-4 py-1.5 text-sm font-medium rounded-md transition-colors ${
-              timerRunning
-                ? "bg-red-50 text-red-600 border border-red-200 hover:bg-red-100"
-                : "bg-green-50 text-green-600 border border-green-200 hover:bg-green-100"
-            }`}
+            className="px-4 py-1.5 text-sm font-medium rounded-md transition-colors text-white border border-transparent hover:opacity-90"
+            style={{ backgroundColor: timerRunning ? "#FE5A4A" : "#87CCCE" }}
           >
             {timerRunning ? "Stop" : "Start"}
           </button>
