@@ -79,7 +79,8 @@ function TaskCard({
       {task.completionPercent > 0 && (
         <div className="mt-1.5 w-full bg-gray-100 rounded-full h-1">
           <div
-            className="bg-brand-500 h-1 rounded-full transition-all"
+            className="h-1 rounded-full transition-all"
+            style={{ backgroundColor: "#FE5A4A" }}
             style={{ width: `${Math.min(task.completionPercent, 100)}%` }}
           />
         </div>
