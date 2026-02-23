@@ -187,7 +187,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
               value={manualMinutes}
               onChange={(e) => setManualMinutes(e.target.value)}
               placeholder="min"
-              className="w-16 px-2 py-1.5 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-16 px-2 py-1.5 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
             />
             <span className="text-xs text-gray-400">min override</span>
           </div>
@@ -200,7 +200,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
           <label className="block text-xs font-medium text-gray-500 mb-1">Task</label>
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className={`w-full text-left px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+            className={`w-full text-left px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 ${
               errors.task ? "border-red-300" : "border-gray-200"
             }`}
           >
@@ -220,7 +220,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search tasks..."
-                  className="w-full px-2 py-1.5 text-sm border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-2 py-1.5 text-sm border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-brand-500"
                   autoFocus
                 />
               </div>
@@ -238,7 +238,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
                 {search && !filteredTasks.some((t) => t.title.toLowerCase() === search.toLowerCase()) && (
                   <button
                     onClick={openCreateModal}
-                    className="w-full text-left px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 font-medium"
+                    className="w-full text-left px-3 py-2 text-sm text-brand-600 hover:bg-brand-50 font-medium"
                   >
                     + Create &quot;{search}&quot;...
                   </button>
@@ -246,7 +246,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
                 {!search && (
                   <button
                     onClick={() => { setSearch(""); openCreateModal(); }}
-                    className="w-full text-left px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 font-medium"
+                    className="w-full text-left px-3 py-2 text-sm text-brand-600 hover:bg-brand-50 font-medium"
                   >
                     + Create new task...
                   </button>
@@ -266,7 +266,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
               max="100"
               value={completionPercent}
               onChange={(e) => setCompletionPercent(e.target.value)}
-              className={`w-20 px-2 py-1.5 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              className={`w-20 px-2 py-1.5 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 ${
                 errors.completion ? "border-red-300" : "border-gray-200"
               }`}
             />
@@ -282,7 +282,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows={3}
-            className={`w-full px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${
+            className={`w-full px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 resize-none ${
               errors.description ? "border-red-300" : "border-gray-200"
             }`}
             placeholder="What did you work on?"
@@ -295,7 +295,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-5 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 disabled:opacity-50 transition-colors"
+            className="px-5 py-2 bg-brand-600 text-white text-sm font-medium rounded-md hover:bg-brand-700 disabled:opacity-50 transition-colors"
           >
             {saving ? "Saving..." : "Save"}
           </button>
@@ -313,7 +313,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
                 type="text"
                 value={newTaskName}
                 onChange={(e) => setNewTaskName(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
               />
             </div>
             <div>
@@ -321,7 +321,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
               <select
                 value={ntAssignee}
                 onChange={(e) => setNtAssignee(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
               >
                 {people.map((p) => (
                   <option key={p.id} value={p.id}>
@@ -336,7 +336,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
                 <select
                   value={ntRow}
                   onChange={(e) => setNtRow(e.target.value)}
-                  className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
                   <option value="CURRENT">Current</option>
                   <option value="NEXT_SPRINT">Next Sprint</option>
@@ -351,7 +351,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
                   max="100"
                   value={ntCompletion}
                   onChange={(e) => setNtCompletion(e.target.value)}
-                  className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                 />
               </div>
             </div>
@@ -361,7 +361,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
                 type="date"
                 value={ntDueDate}
                 onChange={(e) => setNtDueDate(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
               />
             </div>
             <div className="flex justify-end gap-2 pt-2">
@@ -374,7 +374,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
               <button
                 onClick={createNewTask}
                 disabled={!newTaskName.trim() || !ntAssignee}
-                className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 disabled:opacity-50"
+                className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-md hover:bg-brand-700 disabled:opacity-50"
               >
                 Create
               </button>

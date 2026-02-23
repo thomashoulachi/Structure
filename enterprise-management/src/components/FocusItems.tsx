@@ -97,7 +97,7 @@ function SortableItem({
           onChange={(e) => setText(e.target.value)}
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
-          className="flex-1 text-sm bg-transparent border-b border-blue-400 outline-none py-0.5"
+          className="flex-1 text-sm bg-transparent border-b border-brand-500 outline-none py-0.5"
         />
       ) : (
         <span
@@ -188,7 +188,7 @@ export default function FocusItems() {
         <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Focus Items</h2>
         <button
           onClick={addItem}
-          className="text-xs text-blue-600 hover:text-blue-700 font-medium"
+          className="text-xs text-brand-600 hover:text-brand-700 font-medium"
         >
           + Add
         </button>

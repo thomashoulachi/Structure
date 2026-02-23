@@ -3,6 +3,12 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-brand-50: #eef8f8;
+  --color-brand-100: #d6eeef;
+  --color-brand-200: #b0dfe0;
+  --color-brand-500: #87CCCE;
+  --color-brand-600: #6dbfc1;
+  --color-brand-700: #55b0b3;
 }
 
 body {

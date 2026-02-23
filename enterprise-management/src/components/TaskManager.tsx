@@ -42,7 +42,7 @@ function DroppableCell({
     <div
       ref={setNodeRef}
       className={`min-h-[80px] p-2 space-y-2 transition-colors rounded ${
-        isOver ? "bg-blue-50" : ""
+        isOver ? "bg-brand-50" : ""
       }`}
     >
       {children}
@@ -68,7 +68,7 @@ function TaskCard({
     <div
       onClick={onClick}
       className={`bg-white border border-gray-200 rounded-md p-3 cursor-pointer hover:border-gray-300 hover:shadow-sm transition-all ${
-        isDragOverlay ? "shadow-lg ring-2 ring-blue-200" : ""
+        isDragOverlay ? "shadow-lg ring-2 ring-brand-200" : ""
       }`}
     >
       <div className="text-sm font-medium text-gray-900 line-clamp-2">{task.title}</div>
@@ -79,7 +79,7 @@ function TaskCard({
       {task.completionPercent > 0 && (
         <div className="mt-1.5 w-full bg-gray-100 rounded-full h-1">
           <div
-            className="bg-blue-500 h-1 rounded-full transition-all"
+            className="bg-brand-500 h-1 rounded-full transition-all"
             style={{ width: `${Math.min(task.completionPercent, 100)}%` }}
           />
         </div>
@@ -219,7 +219,7 @@ export default function TaskManager({ tasks, people, onDataChange }: Props) {
         <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Task Manager</h2>
         <button
           onClick={() => setShowManagePeople(!showManagePeople)}
-          className="text-xs text-blue-600 hover:text-blue-700 font-medium"
+          className="text-xs text-brand-600 hover:text-brand-700 font-medium"
         >
           Manage People
         </button>
@@ -233,12 +233,12 @@ export default function TaskManager({ tasks, people, onDataChange }: Props) {
               value={newPersonName}
               onChange={(e) => setNewPersonName(e.target.value)}
               placeholder="New person name"
-              className="px-2 py-1.5 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-2 py-1.5 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
               onKeyDown={(e) => e.key === "Enter" && addPerson()}
             />
             <button
               onClick={addPerson}
-              className="px-3 py-1.5 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="px-3 py-1.5 text-xs bg-brand-600 text-white rounded-md hover:bg-brand-700"
             >
               Add
             </button>

@@ -123,7 +123,7 @@ export default function TaskExpandedModal({ task, people, onClose, onDataChange 
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               onBlur={handleTitleBlur}
-              className="text-lg font-semibold text-gray-900 bg-transparent border-b border-transparent hover:border-gray-300 focus:border-blue-500 focus:outline-none w-full py-0.5"
+              className="text-lg font-semibold text-gray-900 bg-transparent border-b border-transparent hover:border-gray-300 focus:border-brand-500 focus:outline-none w-full py-0.5"
             />
             <div className="flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-1.5">
@@ -135,7 +135,7 @@ export default function TaskExpandedModal({ task, people, onClose, onDataChange 
                   value={completionPercent}
                   onChange={(e) => setCompletionPercent(e.target.value)}
                   onBlur={handleCompletionBlur}
-                  className="w-14 px-1.5 py-0.5 text-sm border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-14 px-1.5 py-0.5 text-sm border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-brand-500"
                 />
                 <span className="text-xs text-gray-500">%</span>
               </div>
@@ -145,7 +145,7 @@ export default function TaskExpandedModal({ task, people, onClose, onDataChange 
                   type="date"
                   value={dueDate}
                   onChange={(e) => handleDueDateChange(e.target.value)}
-                  className="px-1.5 py-0.5 text-sm border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="px-1.5 py-0.5 text-sm border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-brand-500"
                 />
               </div>
               <div className="flex items-center gap-1.5">
@@ -167,7 +167,7 @@ export default function TaskExpandedModal({ task, people, onClose, onDataChange 
         {/* Body - Commits list */}
         <div className="flex-1 overflow-y-auto px-6 py-4">
           {saving && (
-            <div className="text-xs text-blue-500 mb-2">Saving...</div>
+            <div className="text-xs text-brand-500 mb-2">Saving...</div>
           )}
           <h4 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-3">
             Commits ({commits.length})
@@ -184,7 +184,7 @@ export default function TaskExpandedModal({ task, people, onClose, onDataChange 
                         value={editDesc}
                         onChange={(e) => setEditDesc(e.target.value)}
                         rows={2}
-                        className="w-full px-2 py-1.5 text-sm border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none"
+                        className="w-full px-2 py-1.5 text-sm border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none"
                       />
                       <div className="flex gap-2">
                         <input
@@ -204,7 +204,7 @@ export default function TaskExpandedModal({ task, people, onClose, onDataChange 
                       <div className="flex gap-2">
                         <button
                           onClick={saveCommitEdit}
-                          className="px-3 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700"
+                          className="px-3 py-1 text-xs bg-brand-600 text-white rounded hover:bg-brand-700"
                         >
                           Save
                         </button>
@@ -234,7 +234,7 @@ export default function TaskExpandedModal({ task, people, onClose, onDataChange 
                         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                           <button
                             onClick={() => startEditCommit(commit)}
-                            className="px-2 py-0.5 text-xs text-gray-400 hover:text-blue-600"
+                            className="px-2 py-0.5 text-xs text-gray-400 hover:text-brand-600"
                           >
                             Edit
                           </button>
