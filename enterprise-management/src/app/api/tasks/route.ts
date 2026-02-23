@@ -25,8 +25,8 @@ export async function POST(req: Request) {
 
   const { title, assigneePersonId, rowStatus, completionPercent, dueDate } = await req.json();
 
-  if (!title?.trim() || !assigneePersonId) {
-    return NextResponse.json({ error: "Title and assignee required" }, { status: 400 });
+  if (!title?.trim() || !assigneePersonId || !dueDate) {
+    return NextResponse.json({ error: "Title, assignee, and due date required" }, { status: 400 });
   }
 
   const person = await prisma.person.findFirst({ where: { id: assigneePersonId, userId } });

@@ -353,7 +353,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
               </div>
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">Due Date (optional)</label>
+              <label className="block text-xs font-medium text-gray-500 mb-1">Due Date *</label>
               <input
                 type="date"
                 value={ntDueDate}
@@ -370,7 +370,7 @@ export default function WorkLog({ tasks, people, onCommitSaved }: Props) {
               </button>
               <button
                 onClick={createNewTask}
-                disabled={!newTaskName.trim() || !ntAssignee}
+                disabled={!newTaskName.trim() || !ntAssignee || !ntDueDate}
                 className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-md hover:bg-brand-700 disabled:opacity-50"
               >
                 Create
